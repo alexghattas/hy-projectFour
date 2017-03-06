@@ -1,0 +1,257 @@
+// Header
+header {
+	background: $primaryColor;
+	@media #{$large} {
+		padding: 0 20px;
+	}
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+	@media #{$small} {
+		justify-content: center;
+	}
+	.navLeft {
+		img {
+			width: 200px;
+		}
+	}
+	.navRight {
+		background: $secondaryColor;
+		@media #{$small} {
+		display: none;
+		}
+		h4 {
+			color: $lightColorPrimary;
+			padding: 0 20px;
+		}
+	}
+}
+
+// Main
+.searchBoxContainer {
+	form {
+		display: flex;
+		justify-content: center;
+	}
+	margin: 80px 0 120px 0;
+	@media #{$medium} {
+		margin: 50px 0 90px;
+	}
+	p {
+		font-family: $primaryFont;
+		font-weight: lightFontWeight;
+		color: $secondaryColor;
+		font-size: 12px;
+		text-align: center;
+		@media #{$large} {
+			padding: 0 20px;
+		}
+	}
+}
+
+form {
+	margin-top: 50px;
+	@media #{$medium} {
+		margin-top: 20px;
+	}
+	input {
+		background: $backgroundShade;
+		padding: 10px 15px;
+		border: 0;
+		outline: 0;
+		text-align: center;
+		font-family: $primaryFont;
+		font-weight: $lightFontWeight;
+		color: $lightColorPrimary;
+		font-size: 35px;
+		margin: 0;
+		@media #{$medium} {
+			font-size: 25px;
+		}
+		@media #{$small} {
+			font-size: 20px;
+			padding: 5px 8px;
+		}
+	}
+	::-webkit-input-placeholder { /* Chrome */
+	  color: rgba(255, 255, 255, 0.6);
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: rgba(255, 255, 255, 0.6);;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: rgba(255, 255, 255, 0.6);;
+	  opacity: 1;
+	}
+	:-moz-placeholder { /* Firefox 4 - 18 */
+	  color: rgba(255, 255, 255, 0.6);;
+	  opacity: 1;
+	}
+	button {
+		background: $secondaryColor;
+		border: none;
+		margin: 0;
+		padding: 15px 20px;
+		transition: all 0.8s ease 0s;
+		@media #{$small} {
+			padding: 10px 15px;
+		}
+	}
+	button:hover {
+		background: $secondaryColorHover;
+	}
+	button:focus {
+		outline: 0;
+	}
+	.fa {
+		color: $lightColorPrimary;
+		font-size: 35px;
+		@media #{$small} {
+			font-size: 25px;
+		}
+	}
+}
+
+.searchResults {
+	display: flex;
+	margin: 95px auto;
+	margin-bottom: 95px;
+	.beerInformation {
+		width: 70%;
+		padding: 50px;
+		text-align: center;
+		background: url(../assets/mountains_bg.jpg);
+		background-size: cover;
+		background-position: center;
+		@media #{$large} {
+			width: 100%;
+		}
+		@media #{$small} {
+			padding: 10px;
+		}
+		img {
+			width: 25px;
+			bottom: 50px;
+		}
+		span {
+			font-weight: $boldFontWeight;
+			font-style: italic;
+			color: $primaryColor;
+		}
+		p {
+			color: $lightColorPrimary;
+			font-family: $primaryFont;
+			font-weight: $lightFontWeight;
+		}
+		.beerInformationContainer {
+			border: 1px solid $primaryColor;
+		}
+	}
+	.beerImage {
+		width: 30%;
+		padding: 0px;
+		background: $lightColorPrimary;
+		@media #{$large} {
+			display: none;
+		}
+		.beerImageLink {
+			text-align: center;
+		}
+		.beerImageText {
+			width:100%;
+			background: $secondaryColor;
+			padding: 5px;
+			line-height: 200%;
+			margin-bottom: 30px;
+		}
+		img{
+			max-width: 70%;
+			margin: 0 auto;
+		}
+		h3 {
+			color: $lightColorPrimary;
+			text-align: center;
+			font-family:Khula;
+			font-size: 20px;
+		}
+	}
+}
+
+.recipeButtonContainer {
+	margin: 15px 0 50px 0;
+	.recipeButton {
+		margin: 0 auto;
+		background: $primaryColor;
+		font-family: $primaryFont;
+		color: $darkColorPrimary;
+		padding: 10px 40px;
+		margin-top: 100px;
+		font-weight: $lightFontWeight;
+		font-size: 18px;
+		text-decoration: none;
+		transition: all 0.8s ease 0s;
+	}
+	.recipeButton:hover {
+		background: $primaryColorHover;
+		color: $lightColorPrimary;
+	}
+}
+
+// Footer
+footer {
+	background: $darkColorPrimary;
+}
+
+.subFooter {
+	background: #1f1c1d;
+}
+
+.footerContainer {
+	display: flex;
+	align-self: flex-end;
+	@media #{$medium} {
+		flex-direction: column;
+	}
+	.footerInfoLeft, .footerInfoCenter, .footerInfoRight {
+		width: 33.3%;
+		text-align: center;
+		padding: 60px;
+		@media #{$large} {
+			padding: 20px;
+		}
+		@media #{$medium} {
+			width: 100%;
+			padding: 10px 20px;
+		}
+		a {
+			color: $fourthColor;
+		}
+		p {
+			font-family: $primaryFont;
+			color: $primaryColor;
+			font-weight: $lightFontWeight;
+		}
+	}
+}
+
+.copyRight {
+	p {
+		text-align: center;
+		color: $lightColorPrimary;
+		font-family: $primaryFont;
+		font-weight: $lightFontWeight;
+		font-size: 12px;
+	}
+	padding: 15px;
+}
+
+// JS Social Share
+.jssocials-shares {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 60px;
+}

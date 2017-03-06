@@ -1,0 +1,36 @@
+h1 {
+	font-family: $primaryFont;
+	color: $secondaryColor;
+	font-weight: $boldFontWeight;
+	text-align: center;
+	font-size: 50px;
+	@media #{$large} {
+		font-size: 40px;
+		padding: 0 20px;
+	}
+	@media #{$large} {
+		font-size: 30px;
+	}
+}
+
+h3 {
+	font-family: $primaryFont;
+	color: $lightColorPrimary;
+	font-weight: $lightFontWeight;
+	font-size: 25px;
+	margin: 30px 30px;
+	line-height: 1.5em;
+	@media #{$large} {
+		font-size: 20px;
+	}
+	@media #{$small} {
+		font-size: 14px;
+	}
+}
+
+h4 {
+	font-family: $primaryFont;
+	color: $secondaryColor;
+	font-weight: $boldFontWeight;
+	font-size: 14px;
+}

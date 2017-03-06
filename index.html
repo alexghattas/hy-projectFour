@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BeerMeFood - Pair whatever beer you're drinking tonight with a delicious recipe!</title>
+	<link rel="icon" href="assets/favicon.png">
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="js/script.js">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Khula:700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="js/jssocials/jssocials.css" />
+	<link rel="stylesheet" type="text/css" href="js/jssocials/jssocials-theme-flat.css" />
+</head>
+<body>
+<header>
+	<div class="container">
+		<nav>
+			<div class="navLeft">
+				<img src="assets/main_logoRed.png" alt="Beer Me Food logo">
+			</div>
+			<div class="navRight">
+			<h4>It's Always Beer O'Clock</h4>
+			</div>
+		</nav>
+	</div>
+</header> 
+
+<main>
+	<div class="container">
+		<div class="searchBoxContainer animated fadeIn">
+			<h1>Type in a beer<br> and get an awesome recipe.</h1>
+			<p>
+			Try something like "Kilkenny Irish Ale" or "Hopsta La Vista" or "Waterloo Grapefruit Radler"
+			</p>
+			<form>
+				<input id="searchTerm" type="text" placeholder="Type in beer..." /><button id="submitButton"><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+		<div class="searchResults animated fadeIn">
+			<div class="beerInformation">
+				<div class="beerInformationContainer">
+					<h3>
+						So you're drinking <span class="beerTitle"></span> tonight eh? Well, it's a delicious <span id="beerStyle"></span> brewed by <span id="beerBrewery"></span> in <span id="beerLocation"></span> .
+					</h3>
+					<h3>
+					You're probably also hungry. Try <span id="beerRecipeTitle"></span>
+					</h3>
+					<div class="recipeButtonContainer">
+						<a class="recipeButton" id="beerRecipeLink" target="blank">View Recipe</a>
+					</div>
+					<h3>
+						Recipe doesn't sound so great? Try it with something else.<br><span id="beerPairing"></span>
+					</h3>
+				</div>
+			</div>
+			<div class="beerImage">
+				<div class="beerImageText">
+				<h3>Your beer should look like this. If not, it is advised to drink anyways.</h3>
+				</div>
+				<div class="beerImageLink">
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<div id="share"></div>
+<footer>
+	<div class="container">
+		<div class="footerContainer">
+			<div class="footerInfoLeft">
+				<p>Pair your favorite beer, or whatever beer is around, with a delicious meal with a full recipe</p>
+			</div>
+			<div class="footerInfoCenter">
+				<p>
+				Project 4 @HackerYou - Cohort 13
+				</p>
+				<p>
+				Developed and designed by Alex Ghattas
+				</p>
+			</div>
+			<div class="footerInfoRight">
+				<p>Thank you to <a href="https://lcboapi.com/" target="blank">LCBO API</a> , <a href="http://www.recipepuppy.com/about/api/" target="blank">Recipe Puppy API</a> and <a href="http://www.dafont.com/la-tequila.font" target="blank">La Tequila Font</a></p>
+
+			</div>
+		</div>
+</footer>
+<footer class="subFooter">
+	<div class="container">
+		<div class="copyRight">
+			<p>Copyright 2017. All Rights Reserved.</p>
+		</div>
+	</div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jssocials/jquery.js"></script>
+<script src="js/jssocials/jssocials.min.js"></script>
+</body>
+</html>

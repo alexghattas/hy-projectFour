@@ -1,0 +1,29 @@
+@import "partials/_variables";
+@import "partials/_setup";
+@import "partials/_typography";
+@import "partials/_main";
+
+
+// Universal 
+body {
+	background: $primaryColor;
+	background-image: url(../assets/beer_icon_2.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: 40%;
+	@media #{$large} {
+		background-size: 50%;
+	}
+	@media #{$medium} {
+		background-size: 70%;
+	}
+	@media #{$small} {
+		background-size: 60%;
+		background-position: right center;
+	}
+}
+
+.container {
+	max-width: 1170px;
+	margin: 0 auto;
+}
