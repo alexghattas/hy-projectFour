@@ -66,17 +66,21 @@ beerApp.displayBeer = (beerRes,query) => {
 }
 
 // Users input that is typed into search box
-beerApp.events = (userSearch) => {
+beerApp.events = () => {
     $('.searchResults').hide();
+    $('.errorEntry').hide();
 
     // listen to changes made on our select element
     $('#submitButton').on('click', (event) => {
         event.preventDefault();
-        // get value of the users search
         var usersChoice = $('#searchTerm').val();
+     if (usersChoice === '') {
+        $('.errorEntry').hide();
+     } else {
         beerApp.getBeerPieces(usersChoice);
-
         $('.searchResults').show();
+    }
+
     })
 }
 
