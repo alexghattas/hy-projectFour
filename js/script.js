@@ -7,8 +7,10 @@ var beerApp = {};
 beerApp.lcboKey = 'MDo0NmY2MDY1MC1mZThmLTExZTYtOTE2OC1lNzNiZDhlNzg0NTg6QnNPeHBzcFdONGR1SXAzdG1vS3Q4WnhNR3BTY1pROGc4MGM3';
 
 beerApp.init = function(){
+    drinksWidg.events();
     beerApp.socialShare();
-    beerApp.events();
+    drinksWidg.events();
+    // beerApp.events();
 }
 
 // Gets the LCBO data 
@@ -33,6 +35,8 @@ beerApp.getBeerPieces = (query) => {
     });
 }
 
+
+
 // Gets the Recipe Puppy Data
 beerApp.getFoodData = function(pairings) {
     $.ajax({
@@ -56,16 +60,110 @@ beerApp.getFoodData = function(pairings) {
 });
 }
 
-// Searches the LCBO API with the users search input
-beerApp.displayBeer = (beerRes,query) => {
-    var beerChoice = beerRes.filter((beer) => {
-        return beer.name === query
-    })
 
-    beerApp.displayBeerSearch(beerChoice);
+
+
+
+var drinksWidg = {};
+
+drinksWidg.key = "MDphMmQxNzZiZS1mZDM5LTExZTYtYjQzZi02NzZjYTBlYTAxYTQ6NmZ2UXJsR0F1TDNFYW5QcVRIaDh2UDU5UWxzOWdEc1FZNEVD";
+
+drinksWidg.input = drinksWidg.userInput;
+
+
+
+$('#spirit').keyup(function(){
+            var input = $('#spirit').val();
+
+    $.ajax({
+        url: 'http://lcboapi.com/products?access_key=ACCESS_KEY',
+        type: 'GET',
+        dataType: 'jsonp',
+        headers: {
+        Authorization: "token" + drinksWidg.key,
+        },
+            data: {
+            per_page: 9,
+            q: input
+        },
+        success: function(result) {
+
+        var list = $('#autocomplete');
+
+        list.empty();
+
+        for(var i=0; i<result.result.length; i++){
+
+        list.append('<option class="dropdown" value="' + result.result[i].name + '"></option>');
+            }
+        }
+    });
+});
+
+
+// Runs the users search term through the LCBO API
+drinksWidg.getLcbo = function(query){
+    $("#results").html("");
+    $.ajax({
+        url: 'http://proxy.hackeryou.com',
+        dataType: 'json',
+        method:'GET',
+        data: {
+            reqUrl: 'http://lcboapi.com/products',
+            params: {
+                key: drinksWidg.key,
+                q: query
+            },
+            xmlToJSON: false
+        }
+    }).then(function(res) {
+        var results = res.result[0];
+            beerApp.displayBeerSearch(results)
+    });
+};
+
+
+// Gets the users inputted value from the search form
+drinksWidg.events = function() {
+    $('.searchResults').hide();
+    $("form").on("submit", function(e){
+        e.preventDefault();
+        var usersChoice = $("#spirit").val();
+        $('.searchResults').show();
+        drinksWidg.getLcbo(usersChoice);
+    }); 
 }
 
-// Users input that is typed into search box
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Searches the LCBO API with the users search input
+// beerApp.displayBeer = (beerRes,query) => {
+//     var beerChoice = beerRes.filter((beer) => {
+//         return beer.name === query
+//     })
+
+//     beerApp.displayBeerSearch(beerChoice);
+// }
+
+
+
+
+
 beerApp.events = () => {
     $('.searchResults').hide();
     $('.errorEntry').hide();
@@ -73,13 +171,10 @@ beerApp.events = () => {
     // listen to changes made on our select element
     $('#submitButton').on('click', (event) => {
         event.preventDefault();
-        var usersChoice = $('#searchTerm').val();
-     if (usersChoice === '') {
-        $('.errorEntry').hide();
-     } else {
-        beerApp.getBeerPieces(usersChoice);
-        $('.searchResults').show();
-    }
+        var usersChoice = $('#spirit').val();
+
+        // beerApp.getBeerPieces(usersChoice);
+        // $('.searchResults').show();
 
     })
 }
@@ -89,7 +184,7 @@ beerApp.displayBeerSearch = (beerChoice) => {
     // Resets the search results
     $('.beerImageLink').empty();
     // Creates variable for the users search term
-    var beerResultsDisplay = beerChoice[0];
+    var beerResultsDisplay = beerChoice;
 
     let name = beerResultsDisplay.name;
     let image = beerResultsDisplay.image_url;

@@ -22,11 +22,15 @@
 			</div>
 			<div class="navRight">
 			<h4>It's Always Beer O'Clock</h4>
-			<div class="errorEntry">Please enter a value</div>
 			</div>
 		</nav>
 	</div>
-</header> 
+</header>
+
+
+
+
+
 
 <main>
 	<div class="container">
@@ -35,10 +39,20 @@
 			<p>
 			Try something like "Kilkenny Irish Ale" or "Hopsta La Vista" or "Waterloo Grapefruit Radler"
 			</p>
-			<div class="error"></div>
-			<form>
-				<input id="searchTerm" type="text" placeholder="Type in beer..." /><button id="submitButton"><i class="fa fa-search"></i></button>
-			</form>
+
+			<!-- <form>
+				<input id="searchTerm" type="text" placeholder="Type in beer..." />
+				<button id="submitButton"><i class="fa fa-search"></i></button>
+			</form> -->
+
+			<div class="choose">
+				<form autocomplete="off">
+					<input id="spirit" list="autocomplete" datalist placeholder="find your spirit" type="text">
+					<datalist id="autocomplete"></datalist>
+					<button type="submit" id="submitButton" class="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+				</form>
+			</div> 
+
 		</div>
 		<div class="searchResults animated fadeIn">
 			<div class="beerInformation">
@@ -97,6 +111,7 @@
 </footer>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/script.js"></script>
 <script src="js/jssocials/jquery.js"></script>
 <script src="js/jssocials/jssocials.min.js"></script>
